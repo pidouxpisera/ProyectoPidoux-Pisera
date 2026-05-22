@@ -1,4 +1,373 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- todo el contenido HTML aquí -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico Avanzado y Sesión de Estudio Ideal</title>
+    <!-- Optimización de SEO y Metatags para compartir por link -->
+    <meta name="description" content="Descubre tu perfil de estudio adaptativo y diseña tu sesión ideal con algoritmos de personalización.">
+    <meta property="og:title" content="Analizador de Perfil de Estudio Híbrido">
+    <meta property="og:description" content="Prueba este test psicopedagógico automatizado para alumnos.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        h1 { text-align: center; color: var(--primary); margin-bottom: 10px; }
+        .subtitle { text-align: center; color: var(--text-light); margin-bottom: 30px; }
+
+        .section-title {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .question { margin-bottom: 25px; }
+        .question p { font-weight: 600; margin-bottom: 12px; }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .option-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            width: 20%;
+        }
+        .option-label.right { text-align: right; }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            width: 60%;
+            justify-content: space-around;
+        }
+
+        .radio-group label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: background 0.2s;
+        }
+
+        button:hover { background-color: var(--primary-hover); }
+
+        #results {
+            margin-top: 40px;
+            padding: 35px;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            display: none;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
+        }
+
+        .result-section { 
+            margin-bottom: 25px; 
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8fafc;
+        }
+        
+        .narrative-box {
+            background: #f5f3ff;
+            border-left: 6px solid #6366f1;
+            padding: 20px;
+            border-radius: 4px 8px 8px 4px;
+            font-size: 1.05rem;
+            color: #312e81;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Analizador de Perfil de Estudio Híbrido</h1>
+    <p class="subtitle">Evaluación psicopedagógica multidimensional mediante algoritmos de personalización.</p>
+
+    <form id="quizForm">
+        <div class="section-title">Bloque 1: Canales de Procesamiento de Información</div>
+        
+        <div class="question">
+            <p>1. Necesito ver diagramas, gráficos o esquemas visuales para entender un concepto complejo.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q1" value="1" required>1</label>
+                    <label><input type="radio" name="q1" value="2">2</label>
+                    <label><input type="radio" name="q1" value="3">3</label>
+                    <label><input type="radio" name="q1" value="4">4</label>
+                    <label><input type="radio" name="q1" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Prefiero escuchar una explicación, un podcast o un audiolibro antes que leer un texto largo.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q2" value="1" required>1</label>
+                    <label><input type="radio" name="q2" value="2">2</label>
+                    <label><input type="radio" name="q2" value="3">3</label>
+                    <label><input type="radio" name="q2" value="4">4</label>
+                    <label><input type="radio" name="q2" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Aprendo mucho mejor cuando puedo aplicar la teoría en un proyecto práctico o experimento.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q3" value="1" required>1</label>
+                    <label><input type="radio" name="q3" value="2">2</label>
+                    <label><input type="radio" name="q3" value="3">3</label>
+                    <label><input type="radio" name="q3" value="4">4</label>
+                    <label><input type="radio" name="q3" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Tomar notas detalladas o transcribir textos me ayuda a retener la información en mi mente.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q4" value="1" required>1</label>
+                    <label><input type="radio" name="q4" value="2">2</label>
+                    <label><input type="radio" name="q4" value="3">3</label>
+                    <label><input type="radio" name="q4" value="4">4</label>
+                    <label><input type="radio" name="q4" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="section-title">Bloque 2: Perfil Psicológico y Social</div>
+
+        <div class="question">
+            <p>5. Me siento con más energía y concentración cuando estudio en grupo o debato ideas.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q5" value="1" required>1</label>
+                    <label><input type="radio" name="q5" value="2">2</label>
+                    <label><input type="radio" name="q5" value="3">3</label>
+                    <label><input type="radio" name="q5" value="4">4</label>
+                    <label><input type="radio" name="q5" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. Prefiero profundizar en los temas de forma solitaria y analítica a mi propio ritmo.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q6" value="1" required>1</label>
+                    <label><input type="radio" name="q6" value="2">2</label>
+                    <label><input type="radio" name="q6" value="3">3</label>
+                    <label><input type="radio" name="q6" value="4">4</label>
+                    <label><input type="radio" name="q6" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="section-title">Bloque 3: Gestión del Tiempo y Foco</div>
+
+        <div class="question">
+            <p>7. Planifico mis sesiones de estudio con calendarios y estructuro mis objetivos diarios.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q7" value="1" required>1</label>
+                    <label><input type="radio" name="q7" value="2">2</label>
+                    <label><input type="radio" name="q7" value="3">3</label>
+                    <label><input type="radio" name="q7" value="4">4</label>
+                    <label><input type="radio" name="q7" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Tiendo a postergar deberes y suelo rendir u operar mejor bajo presión de última hora.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q8" value="1" required>1</label>
+                    <label><input type="radio" name="q8" value="2">2</label>
+                    <label><input type="radio" name="q8" value="3">3</label>
+                    <label><input type="radio" name="q8" value="4">4</label>
+                    <label><input type="radio" name="q8" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Mi capacidad de atención cae rápidamente si paso más de 30 minutos fijos en la misma tarea.</p>
+            <div class="options">
+                <span class="option-label">En desacuerdo</span>
+                <div class="radio-group">
+                    <label><input type="radio" name="q9" value="1" required>1</label>
+                    <label><input type="radio" name="q9" value="2">2</label>
+                    <label><input type="radio" name="q9" value="3">3</label>
+                    <label><input type="radio" name="q9" value="4">4</label>
+                    <label><input type="radio" name="q9" value="5">5</label>
+                </div>
+                <span class="option-label right">De acuerdo</span>
+            </div>
+        </div>
+
+        <button type="button" onclick="calcularPerfil()">Procesar Diagnóstico & Diseñar Sesión Ideal</button>
+    </form>
+
+    <div id="results">
+        <h2>🧬 Diagnóstico de Perfil Cognitivo Integrado</h2>
+        <div class="result-section">
+            <h3>📊 Distribución Proporcional de Canales:</h3>
+            <p id="canalesPorcentajes"></p>
+        </div>
+        <div class="result-section">
+            <h3>✨ Tu Sesión de Estudio Ideal (Diseño Personalizado)</h3>
+            <div id="narrativaSesion" class="narrative-box"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function calcularPerfil() {
+    const form = document.getElementById('quizForm');
+    if (!form.checkValidity()) {
+        alert("Por favor, responde a todas las preguntas.");
+        return;
+    }
+
+    const v = parseInt(document.querySelector('input[name="q1"]:checked').value);
+    const a = parseInt(document.querySelector('input[name="q2"]:checked').value);
+    const k = parseInt(document.querySelector('input[name="q3"]:checked').value);
+    const l = parseInt(document.querySelector('input[name="q4"]:checked').value);
+    const ext = parseInt(document.querySelector('input[name="q5"]:checked').value);
+    const itr = parseInt(document.querySelector('input[name="q6"]:checked').value);
+    const ord = parseInt(document.querySelector('input[name="q7"]:checked').value);
+    const cao = parseInt(document.querySelector('input[name="q8"]:checked').value);
+    const fco = parseInt(document.querySelector('input[name="q9"]:checked').value);
+
+    const totalCanales = v + a + k + l;
+    const pVisual = Math.round((v / totalCanales) * 100);
+    const pAuditivo = Math.round((a / totalCanales) * 100);
+    const pKinest = Math.round((k / totalCanales) * 100);
+    const pLecto = Math.round((l / totalCanales) * 100);
+
+    document.getElementById('canalesPorcentajes').innerHTML = `
+        <strong>Visual:</strong> ${pVisual}% | <strong>Auditivo:</strong> ${pAuditivo}% | 
+        <strong>Kinestésico:</strong> ${pKinest}% | <strong>Lectoescritura:</strong> ${pLecto}%
+    `;
+
+    let entorno = "", preparacion = "", ejecucion = "", descansos = "", cierre = "";
+
+    if (itr >= 4 && ext <= 2) {
+        entorno = "Tu sesión ideal debe arrancar en un espacio de <strong>aislamiento absoluto</strong>. Una habitación en completo silencio o audífonos con ruido blanco. Saca el celular de tu vista.";
+    } else if (ext >= 4 && itr <= 2) {
+        entorno = "Tu entorno óptimo es un <strong>espacio compartido dinámico</strong>: una biblioteca con movimiento, una cafetería o un grupo de estudio virtual.";
+    } else {
+        entorno = "Tu perfil es versátil. Inicia en soledad para lo complejo y abre la puerta a interactuar si te estancas.";
+    }
+
+    if (ord >= 4) {
+        preparacion = "Dedica los primeros <strong>3 minutos</strong> a definir el 'Hito del día'. Desglosa el tema en una lista breve de 3 tareas prioritarias.";
+    } else if (cao >= 4) {
+        preparacion = "Establece un <strong>micro-objetivo urgente</strong> (ej. 'Resolver este subtema antes de 20 minutos') para activar tu enfoque bajo presión.";
+    } else {
+        preparacion = "Revisa superficialmente el material para definir una ruta simple de estudio.";
+    }
+
+    const maxCanal = Math.max(pVisual, pAuditivo, pKinest, pLecto);
+    if (maxCanal === pVisual) {
+        ejecucion = "Transforma la información inmediatamente en mapas conceptuales, nubes de ideas o diagramas de flujo usando códigos de colores.";
+    } else if (maxCanal === pAuditivo) {
+        ejecucion = "Usa la <strong>evocación verbal</strong>. Explícate el concepto en voz alta como si se lo enseñaras a un alumno imaginario o graba notas de voz.";
+    } else if (maxCanal === pKinest) {
+        ejecucion = "Estudia de pie intermitentemente, usa una pizarra en la pared o camina por la habitación asimilando los conceptos activos.";
+    } else {
+        ejecucion = "Implementa el <strong>Método Cornell</strong>. Transcribe la información con tus propias palabras utilizando listas ordenadas y tablas.";
+    }
+
+    if (fco >= 4) {
+        descansos = "un <strong>Pomodoro Estricto de 25 minutos de enfoque absoluto por 5 minutos de descanso activo</strong> donde te levantes de la silla.";
+    } else {
+        descansos = "un <strong>Bloque de Flujo Profundo (Deep Work) de 50 a 60 minutos continuos</strong>, seguido de un descanso restaurador de 10 minutos.";
+    }
+
+    cierre = "Termina los últimos 5 minutos apartando tus apuntes y escribiendo o diciendo en voz alta las 3 ideas más importantes que retuviste.";
+
+    document.getElementById('narrativaSesion').innerHTML = `
+        <p><strong>1. El Escenario Ideal:</strong> ${entorno}</p>
+        <p><strong>2. El Arranque:</strong> ${preparacion}</p>
+        <p><strong>3. El Núcleo:</strong> ${ejecucion} Alternarás esto siguiendo ${descansos}</p>
+        <p><strong>4. Consolidación:</strong> ${cierre}</p>
+    `;
+
+    document.getElementById('results').style.display = "block";
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+</body>
 </html>
